@@ -40,4 +40,5 @@ RailsAdmin.config do |config|
   end
 
   config.authorize_with :cancancan
+  config.current_user_method { current_user }
 end

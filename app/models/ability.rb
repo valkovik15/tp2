@@ -5,11 +5,18 @@ class Ability
 
   def initialize(user)
 
+    p user
+
     return unless user.present?
 
     if user.admin_role?
       can :manage, :all
       can :access, :rails_admin
+      can :read, :dashboard 
+    else
+      can :manage, Worker do |worker|
+        worker.department_id == user.department_id
+      end
     end
     # Define abilities for the passed in user here. For example:
     #

@@ -1,0 +1,20 @@
+<button type="button" class="btn btn-success">Add card</button>
+<div class="d-flex align-items-center">
+  <div class="card border-secondary mb-3" style="max-width: 18rem; margin: 15px;">
+      <div class="card-header"><%= @worker.full_name %></div>
+      <div class="card-body text-secondary">
+      <h5 class="card-title"><%= @worker.full_time? ? 'Full time' : 'Per hour' %></h5>
+      </div>
+  </div>
+<div class='card-deck'>
+  <% @cards.each do |card| %>
+  <a href= '<%="/cards/#{card.id}"%>' style='text-decoration: none'">
+    <div class="card border-secondary mb-3" style="max-width: 18rem; margin: 15px;">
+      <div class="card-header"><%= card.date %></div>
+      <div class="card-body text-secondary">
+      <h5 class="card-title"><%= card.worktime %></h5>
+    </div>
+  </a>
+</div>
+  <% end %>
+</div>
