@@ -1,18 +1,24 @@
-<button type="button" class="btn btn-success">Add card</button>
-<div class="d-flex align-items-center">
-  <div class="card border-secondary mb-3" style="max-width: 18rem; margin: 15px;">
-      <div class="card-header"><%= @worker.full_name %></div>
-      <div class="card-body text-secondary">
-      <h5 class="card-title"><%= @worker.full_time? ? 'Full time' : 'Per hour' %></h5>
+<a href='<%=new_worker_card_path(@worker.id)%>'>
+  <button type="button" class="btn btn-success">Add card</button>
+</a>
+
+    <div class="d-flex align-items-center">
+    <a href='<%= edit_worker_path(@worker) %>' style='text-decoration: none'>
+      <div class="card border-secondary mb-3" style="max-width: 18rem; margin: 15px;">
+        <div class="card-header"><%= @worker.full_name %></div>
+        <div class="card-body text-secondary">
+        <h5 class="card-title"><%= @worker.full_time? ? 'Full time' : 'Per hour' %></h5>
       </div>
+      </a>
   </div>
+</div>
 <div class='card-deck'>
   <% @cards.each do |card| %>
-  <a href= '<%="/cards/#{card.id}"%>' style='text-decoration: none'">
+  <a href= '<%= edit_worker_card_path(@worker.id, card.id)%>' style='text-decoration: none'">
     <div class="card border-secondary mb-3" style="max-width: 18rem; margin: 15px;">
-      <div class="card-header"><%= card.date %></div>
+      <div class="card-header"><%= l(card.day, format: :short) %></div>
       <div class="card-body text-secondary">
-      <h5 class="card-title"><%= card.worktime %></h5>
+      <h5 class="card-title">Work time: <%= card.worktime %></h5>
     </div>
   </a>
 </div>
