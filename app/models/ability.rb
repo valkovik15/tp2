@@ -4,9 +4,6 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-
-    p user
-
     return unless user.present?
 
     if user.admin_role?

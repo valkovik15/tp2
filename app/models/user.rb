@@ -4,4 +4,8 @@ class User < ApplicationRecord
   belongs_to :department
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable 
+
+  def full_name
+    "#{self.name} #{self.surname}"
+  end
 end

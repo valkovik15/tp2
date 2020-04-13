@@ -5,5 +5,12 @@ class UsersController < ApplicationController
              else
                 Worker.where(department: current_user.department)
              end
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ReportPdf.new(@cards)
+        send_data pdf.render, filename: "SalaryReport", type: "application/pdf", disposition: "inline"
+      end
+    end
   end
 end

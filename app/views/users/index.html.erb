@@ -1,4 +1,6 @@
-<div class='card-deck'>
+<%= link_to('Generate pdf report for current month', root_path(format: :pdf)) %>
+<div class='card-deck'> 
+  
   <% @cards.each do |worker| %>
   <a href= '<%="/workers/#{worker.id}"%>' style='text-decoration: none'">
     <div class="card border-secondary mb-3" style="max-width: 18rem; margin: 15px;">
