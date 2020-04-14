@@ -10,7 +10,8 @@ class ReportPdf < Prawn::Document
         cards.each do |card|
           worker_information << [ worker.full_name,  I18n.l(card.day, format: :short), card.worktime.to_s+' hour(s)' ]
         end
-        worker_information << [ "Total salary for #{worker.full_name}",  month_string, worker.current_salary.to_f ]
+        total = worker.per_hour? ? "#{worker.current_salary.to_f}(#{worker.salary} per hour)" : worker.current_salary.to_f
+        worker_information << [ "Total salary for #{worker.full_name}",  month_string, total ]
     end
     table worker_information
   end

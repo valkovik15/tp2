@@ -8,6 +8,6 @@ class Worker < ApplicationRecord
   end
 
   def current_salary
-    self.per_hour? ?  SalaryCounter.new(self).count|| 0 : self.salary
+    self.per_hour? ?  SalaryCounter.new.count(self)|| 0 : self.salary
   end
 end

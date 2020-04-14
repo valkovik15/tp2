@@ -12,10 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2020_03_21_124434) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cards", force: :cascade do |t|
     t.integer "worktime"
     t.date "day"
-    t.integer "worker_id", null: false
+    t.bigint "worker_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["worker_id"], name: "index_cards_on_worker_id"
@@ -46,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_03_21_124434) do
     t.string "name"
     t.string "surname"
     t.string "address"
-    t.integer "department_id", null: false
+    t.bigint "department_id", null: false
     t.integer "way_of_payment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
