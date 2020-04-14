@@ -8,5 +8,5 @@
     <%= f.label :worktime, 'Work time' %>
     <%= f.number_field :worktime, step: :any, class: 'form-control', value: @card.worktime%>
   </div>
-  <%= f.submit "Update card", class: 'btn btn-primary' %>
+  <%= f.submit "Update card", class: 'btn btn-primary', data: { confirm: 'Confirm card update' }  %>
 <% end %>
