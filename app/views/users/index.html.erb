@@ -7,7 +7,7 @@
       <div class="card-header"><%= worker.full_name %></div>
       <div class="card-body text-secondary">
       <h5 class="card-title"> <%= worker.position || 'Worker' %> at <%= worker.department.name %></h5>
-      <p class="card-text">Salary: <%= worker.salary %></p>
+      <p class="card-text">Salary<%= '(per hour)' if worker.per_hour?%>: <%= worker.salary %></p>
       <p class="card-text">Salary this month: <%= worker.current_salary %></p>
   </div>
   </a>
