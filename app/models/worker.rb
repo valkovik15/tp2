@@ -10,4 +10,13 @@ class Worker < ApplicationRecord
   def current_salary
     self.per_hour? ?  SalaryCounter.new.count(self)|| 0 : self.salary
   end
+
+  def work_time
+    self.cards.where('DAY BETWEEN ? AND ?',
+                        Date.current.beginning_of_month,
+                        Date.current.end_of_month)
+                .pluck(:worktime)
+                .inject(0, :+)
+  end
+
 end

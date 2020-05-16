@@ -4,5 +4,5 @@
     <%= f.label :way_of_payment %>
     <%= f.select(:way_of_payment, Worker.way_of_payments.keys.map {|role| [role.titleize,role]} )%>
   </div>
-  <%= f.submit "Update card", class: 'btn btn-primary', data: { confirm: 'Confirm worker change' } %>
+  <%= f.submit "Update worker", class: 'btn btn-primary', data: { confirm: 'Confirm worker change' } %>
 <% end %>
