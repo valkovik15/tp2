@@ -6,7 +6,7 @@
     <div class="card border-secondary mb-3" style="max-width: 18rem; margin: 15px;">
       <div class="card-header"><%= worker.full_name %></div>
       <div class="card-body text-secondary">
-      <h5 class="card-title"><%= worker.department.name %></h5>
+      <h5 class="card-title"> <%= worker.position || 'Worker' %> at <%= worker.department.name %></h5>
       <p class="card-text">Salary: <%= worker.salary %></p>
       <p class="card-text">Salary this month: <%= worker.current_salary %></p>
   </div>
